@@ -2,6 +2,13 @@
 {% load static %}
  
 {% block extra_css %}
+<style>
+.message {
+    background-color: rgba(255, 163, 26, 0.5);
+    padding: 3px; 
+    width: 100%;
+}
+</style>
 {% endblock %}
 
 {% block body %}
@@ -17,8 +24,13 @@
             </div>
             <div class="row">
                 <div>
+                <div class="message">
+                    {% for message in messages %}
+                    {{message}}
+                    {% endfor %}
+                </div>
                     <div class="contact-form"  style="width:100%; ">
-                        <form id="contact" action="" method="post">
+                        <form id="contact" action="add_contact/" method="post">
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <fieldset>
