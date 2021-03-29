@@ -57,3 +57,17 @@ class Participant(models.Model):
 
     class Meta:
         ordering = ["-date"]
+
+
+class Contact(models.Model):
+    # id = models.AutoField(primary_key=True)
+    Full_Name = models.CharField(max_length=150)
+    Email_Address = models.EmailField(max_length=100)
+    Message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.Full_Name
+
+    class Meta:
+        ordering = ["-date"]
