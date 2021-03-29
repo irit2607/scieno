@@ -12,6 +12,7 @@ from core.views import (
     add_participant,
     project_details,
     project_view,
+    add_contact,
 )
 
 urlpatterns = [
@@ -29,7 +30,7 @@ urlpatterns = [
         name="participant",
     ),
     path(
-        "participant/add_participant/<int:host_id>",
+        "participant/add_participant/<int:host_id>/",
         add_participant,
         name="add_participant",
     ),
@@ -42,5 +43,10 @@ urlpatterns = [
         "project_view/<int:project_id>",
         project_view,
         name="project_view",
+    ),
+    path(
+        "contact/add_contact/",
+        add_contact,
+        name="add_contact",
     ),
 ]
