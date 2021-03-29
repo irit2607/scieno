@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from core.models import Host, Participant
+from core.models import Host, Participant, Contact
 from core.forms import HostForm, ParticipantForm
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 
 def about(request):
@@ -20,6 +22,22 @@ def projects(request):
 def contact(request):
     template_name = "core/contact.html"
     return render(request, template_name)
+
+
+@csrf_exempt
+def add_contact(request):
+    if request.method == "POST":
+        Full_Name = request.POST["name"]
+        Email_Address = request.POST["email"]
+        Message = request.POST["message"]
+        Contact.objects.create(
+            Full_Name=Full_Name,
+            Email_Address=Email_Address,
+            Message=Message,
+        )
+        messages.success(request, "Your message is successfully sent!")
+
+    return redirect("contact")
 
 
 def host(request):
@@ -117,11 +135,6 @@ def add_participant(request, host_id):
                 Email_address=Email_address,
                 House_Address=House_Address,
                 Gender=Gender,
-                # Student_Name_2=Student_Name_2,
-                # Contact_no_2=Contact_no_2,
-                # Email_address_2=Email_address_2,
-                # House_Address_2=House_Address_2,
-                # Gender_2=Gender_2,
                 Title_of_your_project=Title_of_your_project,
                 Question_or_Problem=Question_or_Problem,
                 Hypothesis_or_possible_solution=Hypothesis_or_possible_solution,
