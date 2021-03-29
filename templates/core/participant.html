@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block extra_css %}
+{% endblock %}
+
+{% block body %}
+   
+    <section class="section" id="about">
+        <div class="container">
+          <form>
+            <div class="form-page-content ng-pristine   ng-isolate-scope ">
+                  <!-- ngRepeat: element in page track by element.identifier --><div data-identifier="field1" data-index="0" style="width: 100%" class=" form-element ">
+                    <div class="form-element-html"><div ><div style="background-color:" class="heading-cover field-cover "><div style="text-align: left; font-size: 1.6em; padding-top: 10px; padding-bottom: ; color: #000000" class="bold-"><span >SCHOOL DETAILS</span></div><input type="hidden" data-field-id="field1" name="field1[]" value="SCHOOL DETAILS"></div></div></div>
+                    </div><!-- end ngRepeat: element in page track by element.identifier --><div data-identifier="field33" data-index="1" style="width: 100%" class=" even form-element form-element-field33 options-false index-false form-element-1 default-false form-element-type-customText is-required-false -handle">
+                    <div class="form-element-html"><div ><div class="absolute-false customText-cover field-cover" style="left: 20px; top: -20px;right: ;bottom: 100px;color: #b5b5b5 !important; background-color:"><div class="full" style="text-align: left"><hr ></div><input type="hidden" name="field33" data-field-id="field33"></div></div></div>
+
+                    <br>
+
+
+                    <table>
+                    <div class="row">
+                    <div class="col-12">
+                     <form class="form-inline justify-content-left " action="{% url 'add_participant' host_id %}" method="POST">
+                    {% csrf_token %}
+                     
+                        <div class="form-group" >
+                             {{form.as_p}}
+                        </div>
+                    </table>
+                        <div style="padding-top: 80px; text-align: center;"><button type="submit" class="main-button-slider">Submit</button></div>
+                   </form>
+        </div>
+    </section>
+      
+{% endblock %}
+{% block extra_js %}
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+    </script>
+{% endblock %}

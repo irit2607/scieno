@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+
+<style>
+
+
+  }
+</style>
+{% endblock %} {% block body %}
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="form-element-html">
+      <div>
+        <div style="background-color: " class="heading-cover field-cover">
+          <div
+            style="
+              text-align: left;
+              font-size: 1.6em;
+              padding-top: 10px;
+              padding-bottom: ;
+              color: #000000;
+            "
+            class="bold-"
+          >
+            <span>DETAILS</span>
+          </div>
+          <input
+            type="hidden"
+            data-field-id="field1"
+            name="field1[]"
+            value="SCHOOL DETAILS"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end ngRepeat: element in page track by element.identifier -->
+  <div
+    data-identifier="field33"
+    data-index="1"
+    style="width: 100%"
+    class="even form-element form-element-field33 options-false index-false form-element-1 default-false form-element-type-customText is-required-false -handle"
+  >
+    <div class="form-element-html">
+      <div>
+        <div
+          class="absolute-false customText-cover field-cover"
+          style="
+            left: 20px;
+            top: -20px;
+            right: ;
+            bottom: 100px;
+            color: #b5b5b5 !important;
+            background-color: ;
+          "
+        >
+          <div class="full" style="text-align: left"><hr /></div>
+          <input type="hidden" name="field33" data-field-id="field33" />
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-left: 5em; margin-top: 3em;font-size: 20px;">
+      <label for="validationCustom01"
+        ><b>Organization/Institution hosting the contest:</b></label>
+      <p style="font-size: 18px;">{{ host_obj.org }}</p>
+      <br />
+
+      <label for="validationCustom01"><b>Brief detail about event: </b></label>
+      <p style="font-size: 18px;">{{ host_obj.detail }}</p>
+      <br />
+
+      <label for="validationCustom01"><b>Eligibility Criteria: </b></label>
+      <p style="font-size: 18px;">{{ host_obj.elig_cri }}</p>
+      <br />
+
+      <label for="validationCustom01"><b>Theme of Project </b></label>
+      <p style="font-size: 18px;">{{ host_obj.theme }}</p>
+      <br />
+
+      <label for="validationCustom01"><b>Last Date of sumbmission </b></label>
+      <p></p>
+      <label for="validationCustom01"><b>Guidelines for submission </b></label>
+      <p style="font-size: 18px;">{{ host_obj.guidelines }}</p>
+      <br /><br />
+
+      <a href="{% url 'participant' host_id %}"
+        ><button type="submit" class="main-button-slider">Apply Now</button></a
+      >
+    </div>
+  </div>
+</section>
+
+{% endblock %} {% block extra_js %} {% endblock %}
