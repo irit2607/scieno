@@ -69,7 +69,8 @@ def add_host(request):
             Guidelines_for_submission = form.cleaned_data.get(
                 "Guidelines_for_submission"
             )
-            Eligibility_Creteria = form.cleaned_data.get("Eligibility_Creteria")
+            Eligibility_Criteria = form.cleaned_data.get("Eligibility_Creteria")
+            Last_Submission_Date = form.cleaned_data.get("Last_Submission_Date")
             Host.objects.create(
                 username=username,
                 full_name=Your_Full_Name,
@@ -82,7 +83,8 @@ def add_host(request):
                 detail=Breif_detail_about_your_event,
                 theme=Theme_of_Project,
                 guidelines=Guidelines_for_submission,
-                elig_cri=Eligibility_Creteria,
+                elig_cri=Eligibility_Criteria,
+                last_sub=Last_Submission_Date,
             )
 
     return redirect("/")
@@ -98,52 +100,57 @@ def host_dashboard(request, username):
     return render(request, template_name, context)
 
 
+def delete_host(request):
+    username = request.user.get_username()
+    host_obj = Host.objects.get(username=username)
+    host_obj.delete()
+
+    return redirect("/")
+
+
+@csrf_exempt
 def add_participant(request, host_id):
     host_id = host_id
     username = request.user.get_username()
     if request.method == "POST":
-        form = ParticipantForm(request.POST)
-        if form.is_valid():
-            School_Name = form.cleaned_data.get("School_Name")
-            School_Phone_no = form.cleaned_data.get("School_Phone_no")
-            School_Email_address = form.cleaned_data.get("School_Email_address")
-            School_Address = form.cleaned_data.get("School_Address")
-            State = form.cleaned_data.get("State")
-            Student_Name = form.cleaned_data.get("Student_Name")
-            Contact_no = form.cleaned_data.get("Contact_no")
-            Email_address = form.cleaned_data.get("Email_address")
-            House_Address = form.cleaned_data.get("House_Address")
-            Gender = form.cleaned_data.get("Gender")
-            Title_of_your_project = form.cleaned_data.get("Title_of_your_project")
-            Question_or_Problem = form.cleaned_data.get("Question_or_Problem")
-            Hypothesis_or_possible_solution = form.cleaned_data.get(
-                "Hypothesis_or_possible_solution"
-            )
-            Materials_needed = form.cleaned_data.get("House_Address")
-            Results = form.cleaned_data.get("Results")
-            Image_of_Project = form.cleaned_data.get("Image_of_Project")
-            Link_of_your_project = form.cleaned_data.get("Link_of_your_project")
-            Participant.objects.create(
-                username=username,
-                School_Name=School_Name,
-                School_Phone_no=School_Phone_no,
-                School_Email_address=School_Email_address,
-                School_Address=School_Address,
-                State=State,
-                Student_Name=Student_Name,
-                Contact_no=Contact_no,
-                Email_address=Email_address,
-                House_Address=House_Address,
-                Gender=Gender,
-                Title_of_your_project=Title_of_your_project,
-                Question_or_Problem=Question_or_Problem,
-                Hypothesis_or_possible_solution=Hypothesis_or_possible_solution,
-                Materials_needed=Materials_needed,
-                Results=Results,
-                Image_of_Project=Image_of_Project,
-                Link_of_your_project=Link_of_your_project,
-                host_id=host_id,
-            )
+        School_Name = request.POST["school_name"]
+        School_Phone_no = request.POST["school_phone"]
+        School_Email_address = request.POST["school_email"]
+        School_Address = request.POST["school_address"]
+        State = request.POST["school_state"]
+        Student_Name = request.POST["name"]
+        Contact_no = request.POST["phone"]
+        Email_address = request.POST["email"]
+        House_Address = request.POST["address"]
+        Gender = request.POST["gender"]
+        Title_of_your_project = request.POST["title"]
+        Question_or_Problem = request.POST["question"]
+        Hypothesis_or_possible_solution = request.POST["solution"]
+        Materials_needed = request.POST["material"]
+        Results = request.POST["results"]
+        Image_of_Project = request.POST["image"]
+        Link_of_your_project = request.POST["link"]
+        Participant.objects.create(
+            username=username,
+            School_Name=School_Name,
+            School_Phone_no=School_Phone_no,
+            School_Email_address=School_Email_address,
+            School_Address=School_Address,
+            State=State,
+            Student_Name=Student_Name,
+            Contact_no=Contact_no,
+            Email_address=Email_address,
+            House_Address=House_Address,
+            Gender=Gender,
+            Title_of_your_project=Title_of_your_project,
+            Question_or_Problem=Question_or_Problem,
+            Hypothesis_or_possible_solution=Hypothesis_or_possible_solution,
+            Materials_needed=Materials_needed,
+            Results=Results,
+            Image_of_Project=Image_of_Project,
+            Link_of_your_project=Link_of_your_project,
+            host_id=host_id,
+        )
 
     return redirect("projects")
 
