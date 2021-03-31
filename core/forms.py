@@ -57,9 +57,14 @@ class HostForm(forms.Form):
     Guidelines_for_submission = forms.CharField(
         widget=forms.Textarea(attrs={"class": "form-control inp", "placeholder": ""})
     )
-    Eligibility_Creteria = forms.CharField(
+    Eligibility_Criteria = forms.CharField(
         widget=forms.Select(
             choices=ef, attrs={"class": "form-control inp", "placeholder": ""}
+        )
+    )
+    Last_Submission_Date = forms.DateField(
+        widget=forms.DateInput(
+            attrs={"class": "form-control inp", "placeholder": "MM/DD/YYYY"}
         )
     )
 
@@ -117,29 +122,6 @@ class ParticipantForm(forms.Form):
             choices=g, attrs={"class": "form-control inp", "placeholder": ""}
         )
     )
-    # Student_Name_2 = forms.IntegerField(
-    #     widget=forms.TextInput(
-    #         attrs={"class": "form-control inp", "placeholder": "Enter your name"}
-    #     )
-    # )
-    # Contact_no = forms.CharField(
-    #     widget=forms.NumberInput(
-    #         attrs={"class": "form-control inp", "placeholder": "Enter your phone no."}
-    #     )
-    # )
-    # Email_address = forms.CharField(
-    #     widget=forms.EmailInput(
-    #         attrs={"class": "form-control inp", "placeholder": "name@example.com"}
-    #     )
-    # )
-    # House_Address = forms.CharField(
-    #     widget=forms.Textarea(attrs={"class": "form-control inp", "placeholder": ""})
-    # )
-    # Gender = forms.CharField(
-    #     widget=forms.Select(
-    #         choices=g, attrs={"class": "form-control inp", "placeholder": ""}
-    #     )
-    # )
     Title_of_your_project = forms.CharField(
         widget=forms.TextInput(attrs={"class": "form-control inp", "placeholder": ""})
     )
