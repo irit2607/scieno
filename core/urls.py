@@ -13,6 +13,7 @@ from core.views import (
     project_details,
     project_view,
     add_contact,
+    delete_host,
 )
 
 urlpatterns = [
@@ -22,6 +23,7 @@ urlpatterns = [
     path("host/", host, name="host"),
     path("host/add_host/", add_host, name="add_host"),
     path("host_dashboard/<str:username>/", host_dashboard, name="host_dashboard"),
+    path("delete_host/", delete_host, name="delete_host"),
     path("detail/", detail, name="detail"),
     path("applyto/<int:host_id>/", applyto, name="applyto"),
     path(
