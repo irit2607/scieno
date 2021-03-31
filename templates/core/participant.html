@@ -17,19 +17,207 @@
 
                     <br>
 
+                   
+                    <div class="form-label">
+                  <label for="validationCustom01">School Name</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="Enter your school name"  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
 
-                    <table>
-                    <div class="row">
-                    <div class="col-12">
-                     <form class="form-inline justify-content-left " action="{% url 'add_participant' host_id %}" method="POST">
-                    {% csrf_token %}
-                     
-                        <div class="form-group" >
-                             {{form.as_p}}
-                        </div>
-                    </table>
-                        <div style="padding-top: 80px; text-align: center;"><button type="submit" class="main-button-slider">Submit</button></div>
-                   </form>
+                <br>
+
+                <div class="form-label">
+                  <label for="validationCustom01">School Phone no.</label>
+                  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" id="validationCustom01" placeholder="Enter your school phone no."  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">School Email address</label>
+               <input type="email" class="form-control" id="exampleFormControlInput1" id="validationCustom01"placeholder="name@example.com" required>
+                </div>
+
+                
+
+                <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">School Address</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+
+                <br>
+
+                <div class="mb-3">
+                  <label for="validationCustom04">State</label>
+                  <input type="text" class="form-control" id="validationCustom04" placeholder="State" required >
+                  <div class="invalid-feedback">
+                    Please provide a valid state.
+                  </div>
+                </div>
+              </div>
+
+              </div><!-- end ngRepeat: element in page track by element.identifier --><div data-identifier="field27" data-index="33" style="width: 100%" class=" even form-element form-element-field27 options-false index-false form-element-33 default-false form-element-type-heading is-required-false -handle">
+                    <div class="form-element-html"><div ><div style="background-color:" class="heading-cover field-cover "><div style="text-align: left; font-size: 1.6em; padding-top: 30px; padding-bottom: ; color: #000000" class="bold-"><span >STUDENTS INFORMATION </span></div><input type="hidden" data-field-id="field27" name="field27[]" value="STUDENTS INFORMATION"></div></div></div>
+                    
+                  
+                    <br>
+
+                    <div class="form-label">
+                  <label for="validationCustom01">Student Name</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="Enter your name"  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="form-label">
+                  <label for="validationCustom01">Contact no.</label>
+                  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" id="validationCustom01" placeholder="Enter your school phone no."  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"> Email address</label>
+               <input type="email" class="form-control" id="exampleFormControlInput1" id="validationCustom01"placeholder="name@example.com" required>
+                </div>
+
+                <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">House Address</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                </div><!-- end ngRepeat: element in page track by element.identifier --><div data-identifier="field118" data-index="41" style="width: 100%" class=" even form-element ">
+                    <div class="form-element-html"><div ><div class="images- checkbox-cover field-cover"><span class="sub-label-false"><span class="main-label"><span >GENDER</span></span></div></div></div></div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">Male</label>
+               </div>
+
+                <br><br>
+
+                <div class="form-page-content ng-pristine   ng-isolate-scope ">
+                  <!-- ngRepeat: element in page track by element.identifier --><div data-identifier="field1" data-index="0" style="width: 100%" class=" form-element ">
+                    <div class="form-element-html"><div ><div style="background-color:" class="heading-cover field-cover "><div style="text-align: left; font-size: 1.6em; padding-top: 10px; padding-bottom: ; color: #000000" class="bold-"><span >Submit Your Form</span></div><input type="hidden" data-field-id="field1" name="field1[]" value="SCHOOL DETAILS"></div></div></div>
+                    </div><!-- end ngRepeat: element in page track by element.identifier --><div data-identifier="field33" data-index="1" style="width: 100%" class=" even form-element form-element-field33 options-false index-false form-element-1 default-false form-element-type-customText is-required-false -handle">
+                    <div class="form-element-html"><div ><div class="absolute-false customText-cover field-cover" style="left: 20px; top: -20px;right: ;bottom: 100px;color: #b5b5b5 !important; background-color:"><div class="full" style="text-align: left"><hr ></div><input type="hidden" name="field33" data-field-id="field33"></div></div></div>
+
+                    <br>
+
+
+                  <div class="form-label">
+                  <label for="validationCustom01">Title of your project</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="form-label">
+                  <label for="validationCustom01">Question or Problem</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+                <br>
+
+
+               <div class="form-label">
+                  <label for="validationCustom01">Hypothesis or possible solution</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+              
+                <br>
+
+                <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Materials needed:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+
+                <br>
+
+                <div class="form-label">
+                  <label for="validationCustom01">Data/Results</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+                <br>
+
+
+              <div class="form-label">
+                <label for="validationCustom01">Image of Project</label>
+                <br>
+                <form action="/action_page.php">
+                <input type="file" id="myFile" name="filename">
+               </form>
+             </div>
+
+                <br>
+
+              <div class="form-label">
+
+                <form action="/action_page.php">
+              <label for="validationCustom01">Link of your project</label><br>
+              <input type="url" class="form-control" id="validationCustom01" placeholder=""  required>
+             </form>
+
+
+
+              </div>
+
+              <br>  
+
+
+
+                <div class="form-label">
+                  <label for="validationCustom01">Conclusion</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+                <br>
+
+
+                
+
+                <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                      </label>
+                      <div class="invalid-feedback">
+                        You must agree before submitting.
+                      </div>
+                </div>
+              </div>
+              <button type="submit" class="main-button-slider">Submit</button>
+ 
+                </form>   
         </div>
     </section>
       
