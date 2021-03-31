@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Host(models.Model):
@@ -15,6 +16,9 @@ class Host(models.Model):
     theme = models.CharField(max_length=250)
     guidelines = models.TextField()
     elig_cri = models.TextField()
+    last_sub = models.DateField(
+        auto_now=False, auto_now_add=False, default=datetime.date.today
+    )
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -26,7 +30,7 @@ class Host(models.Model):
 
 class Participant(models.Model):
     # id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=50, default="null")
+    username = models.CharField(max_length=50, default="null", blank=True)
     School_Name = models.CharField(max_length=50)
     School_Phone_no = models.CharField(max_length=150)
     School_Email_address = models.EmailField(max_length=100)
@@ -37,11 +41,6 @@ class Participant(models.Model):
     Email_address = models.EmailField(max_length=100)
     House_Address = models.CharField(max_length=200)
     Gender = models.CharField(max_length=100)
-    # Student_Name_2 = models.CharField(max_length=50, default="", blank=True)
-    # Contact_no2 = models.CharField(max_length=150, default="", blank=True)
-    # Email_address2 = models.EmailField(max_length=100, default="", blank=True)
-    # House_Address2 = models.CharField(max_length=200, default="", blank=True)
-    # Gender2 = models.CharField(max_length=100, default="", blank=True)
     Title_of_your_project = models.CharField(max_length=200)
     Question_or_Problem = models.CharField(max_length=100)
     Hypothesis_or_possible_solution = models.CharField(max_length=50)
