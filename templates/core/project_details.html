@@ -1,5 +1,15 @@
 {% extends 'base.html' %} {% load static %} {% block extra_css %} {% endblock %}
 {% block body %}
+
+<style>
+   @media screen and (max-width: 500px){
+   .container{
+    margin-left: 1em;
+     }
+   }
+   
+
+</style>
 <section class="section" id="about">
   <div class="container">
     <div class="form-element-html">
@@ -16,17 +26,7 @@
     <div class="form-element-html">
       <div>
         {% comment %}
-        <div
-          class="absolute-false customText-cover field-cover"
-          style="
-            left: 20px;
-            top: -20px;
-            right: ;
-            bottom: 100px;
-            color: #b5b5b5 !important;
-            background-color: ;
-          "
-        >
+        
           {% endcomment %}
           <div class="full" style="text-align: left"><hr /></div>
           <input type="hidden" name="field33" data-field-id="field33" />
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div style="margin-left: 5em; margin-top: 3em">
+    <div class="container" style="margin-left: 1em;">
       <label for="validationCustom01">School Details</label>
       <p>Name: {{ project_obj.School_Name }}</p>
       <p>Phone No.: {{ project_obj.School_Phone_no }}</p>
