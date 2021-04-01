@@ -32,6 +32,7 @@
           border: none;
           cursor: pointer;
           width: 10%;
+
         }
 
         /* Add a hover effect for buttons */
@@ -69,10 +70,17 @@
         }
 
         /* Change styles for span and cancel button on extra small screens */
-        @media screen and (max-width: 300px) {
+        @media screen and (max-width: 500px) {
           span.psw {
             display: block;
             float: none;
+          }
+          button {
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+          width: 30%;
           }
         } 
     </style>
