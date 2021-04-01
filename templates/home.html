@@ -1,99 +1,123 @@
-{% extends 'base.html' %} {% load static %} {% block extra_css %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="color-scheme" content="dark light">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Scienocyde</title>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-lava.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+
 <style>
-  .login {
-    background-color: #4caf50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 10%;
-  }
-    @media screen and (max-width: 500px){
-      .card-img-top{
-        width: 30rem; 
-        height: 15rem; 
-        padding-left: 0px;
-      }
-      .card{
-        width: 50%;
-        margin-left: 5px;
-      }
-      
-      .main-button-slider{
-        padding: 2px;
-      }
-
+    @media screen and (max-width: 500px) {
     }
-  /* Add a hover effect for buttons */
-  .login:hover {
-    opacity: 0.8;
-  }
 </style>
-{% endblock %} {% block body %} {% if user.is_authenticated %}
-<!-- ***** Welcome Area Start ***** -->
-<div class="welcome-area" id="welcome">
-  <!-- ***** Header Text Start ***** -->
-  <div class="header-text">
-    <div class="container">
-      <div class="row">
-        <div
-          class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
-          data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
-        >
-          <h1>Welcome to the Science <em>FAIR</em></h1>
-          <p>We welcome you to the most exciting Science Fair ever!</p>
-          
-          {% if host_obj %}
-          <a href="{% url 'host_dashboard' username %}" class="main-button-slider">
-            Dashboard
-          </a>
-          {% else %}
-          <a href="/core/host" class="main-button-slider">Host</a>
-          {% endif %}
-         
-          <a
-            href="/core/detail"
-            style="margin-top: 3px; margin-left: 1em;"
-            class="main-button-slider"
-            >Science Fair
-          </a>
+
+<body >
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-      </div>
     </div>
-  </div>
-  {% else %}
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            Scienocyde
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+    {% if user.is_authenticated %}
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="/">Home</a></li>
+                            <li class="scroll-to-section"><a href="/core/about" >About</a></li>
+                            <li class="scroll-to-section"><a href="/core/projects" >Projects</a></li>
+                            <li class="scroll-to-section"><a href="/core/contact" >Contact Us</a></li>
+                            <li class="scroll-to-section">
+                                <fieldset>
+                                  <form method="POST" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                  <button style="background-color:#ffa31a " type="submit" id="form-submit" class="main-button">Log out</button>
+                              </form>
+                               </fieldset>
+                            </li>    
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
 
-  <div class="header-text">
-    <div class="container">
-      <div class="row" style="padding-top: 6em; padding-left: 10em">
-        <div
-          class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
-          data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-          <div class="card" style="width: 50rem; height: 25rem;  ">
-            <img
-              src="https://thumbs.dreamstime.com/b/forgot-password-computer-concept-unhappy-man-near-account-login-flat-vector-male-character-design-landing-page-web-poster-184010038.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h3 class="card-title" style="padding-bottom: 1em">
-                You are not logged in
-              </h3>
-
-              <a href="{% url 'login' %}" class="main-button-slider">Log In</a>
-
-              <a href="{% url 'signup' %}" class="main-button-slider"
-                >Sign Up</a
-              >
+                        <script src="//code.tidio.co/2srzcptp4lwffijkyx5zclowpf3phhnn.js" async></script>
+                     
+                        
+    {% endif %}
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    {% block body %}{% endblock %}
+    
 
-{% endif %}
-<!-- ***** Header Text End ***** -->
-{% endblock %} {% block extra_js %} {% endblock %}
+        <div class="col-lg-12" style="text-align: center;background: linear-gradient(145deg, rgba(244,129,63,1) 0%, rgba(241,85,106,1) 100%); margin-top: 355px; bottom: 0;">
+            <div class="sub-footer">
+                <p style="color: white;"><em>Copyright &copy; 2021 | Developed by Koderz </em></p>
+            </div>
+        </div>
+        
+    <!-- ***** Welcome Area End ***** -->
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+    <!-- Plugins -->
+    <script src="{% static 'js/owl-carousel.js' %}"></script>
+    <script src="{% static 'js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/imgfix.min.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+</head>
+<body>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>
+ -->
